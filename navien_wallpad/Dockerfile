@@ -9,7 +9,6 @@ WORKDIR /share
 
 RUN apk add --no-cache jq npm make gcc g++ python3 linux-headers udev
 
-WORKDIR /
 COPY package.json /
 RUN npm install
 # # Install requirements for add-on
