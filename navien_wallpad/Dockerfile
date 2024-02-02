@@ -7,15 +7,15 @@ COPY run.sh /
 COPY js /js
 WORKDIR /share
 
-RUN apk add --no-cache jq npm make gcc g++ python3 linux-headers udev
+# RUN apk add --no-cache jq npm make gcc g++ python3 linux-headers udev
 
-COPY package.json /
-RUN npm install
-# # Install requirements for add-on
-# RUN apk add --no-cache jq npm make gcc g++ python3 linux-headers udev \
-# && npm init -f
+# COPY package.json /
+# RUN npm install
+# Install requirements for add-on
+RUN apk add --no-cache jq npm make gcc g++ python3 linux-headers udev \
+&& npm init -f
 
-# RUN chmod a+x /run.sh
+RUN chmod a+x /run.sh
 
-# # CMD [ "/run.sh" ]
-# ENTRYPOINT [ "/run.sh" ]
+# CMD [ "/run.sh" ]
+ENTRYPOINT [ "/run.sh" ]
